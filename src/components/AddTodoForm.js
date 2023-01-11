@@ -10,6 +10,17 @@ const AddTodoForm = ({yapilacaklar,setYapilacaklar}) => {
             alert("Boş kayıt yapılamaz")
             return
         }
+        var textMevcutMu=false
+        yapilacaklar.map(item=>{
+          if(item.text.toLowerCase() === yapilacakText.toLowerCase()){
+            textMevcutMu=true
+          }
+        })
+        if(textMevcutMu === true){
+          if(window.confirm("Böyle bir kayıt zaten var. Yine de eklensin mi?") === false){
+            return
+          }
+        }
         const newTodo={
             id:String(new Date().getTime()),
             text:yapilacakText,

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import AddTodoForm from "./components/AddTodoForm";
 import Todo from "./components/Todo";
-import emptyList from "./assets/emptyList.gif"
+import emptyList from "./assets/emptyList.gif";
 
 function App() {
   const [yapilacaklar, setYapilacaklar] = useState([]);
@@ -22,7 +22,12 @@ function App() {
       ) : (
         <div className="container my-5">
           {yapilacaklar.map((item, index) => (
-            <Todo key={item.id} item={item} />
+            <Todo
+              key={item.id}
+              item={item}
+              yapilacaklar={yapilacaklar}
+              setYapilacaklar={setYapilacaklar}
+            />
           ))}
         </div>
       )}
